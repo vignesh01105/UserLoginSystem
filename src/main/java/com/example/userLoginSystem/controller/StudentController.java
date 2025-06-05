@@ -1,7 +1,7 @@
-package com.example.userLoginSystem;
+package com.example.userLoginSystem.controller;
 
 
-import com.example.entity.Student;
+import com.example.userLoginSystem.entity.Student;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
