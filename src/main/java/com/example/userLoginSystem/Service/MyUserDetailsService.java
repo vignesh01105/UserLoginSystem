@@ -1,6 +1,6 @@
 package com.example.userLoginSystem.Service;
 
-import com.example.userLoginSystem.entity.User;
+import com.example.userLoginSystem.entity.Users;
 import com.example.userLoginSystem.entity.UserPrincipal;
 import com.example.userLoginSystem.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ public class MyUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        User user= userRepo.findByUserName(username);
+        Users user= userRepo.findByUsername(username);
         if (user == null){
             throw new UsernameNotFoundException("User not found");
         }

@@ -2,10 +2,9 @@ package com.example.userLoginSystem.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import org.antlr.v4.runtime.misc.NotNull;
 
 @Entity
-public class User {
+public class Users {
 
     @Id
     private int id;

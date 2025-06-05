@@ -40,7 +40,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    public AuthenticationProvider authenticationProvider(HttpSecurity http1){
+    public AuthenticationProvider authenticationProvider(){
 
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
         daoAuthenticationProvider.setPasswordEncoder(NoOpPasswordEncoder.getInstance());
