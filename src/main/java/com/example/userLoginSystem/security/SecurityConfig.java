@@ -8,6 +8,7 @@ import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
@@ -24,7 +25,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
-                .csrf(csrf -> csrf.disable()) // ✅ Use lambda to disable
+                .csrf(AbstractHttpConfigurer::disable) // ✅ Use lambda to disable
                 .authorizeHttpRequests(auth -> auth
                         .anyRequest().authenticated()
 
@@ -33,7 +34,7 @@ public class SecurityConfig {
         http.httpBasic(Customizer.withDefaults());//Statement added for Postman client
 
         http.sessionManagement(session -> session
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS) // 🚫 No session
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
         );
 
         return http.build();
